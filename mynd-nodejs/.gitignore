@@ -1,0 +1,47 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+uploads/*
+logs/*
+
+# Yarn
+.pnp/
+.yarn/
+.yarnrc
+.yarnrc.yml
+.yarnignore
+.yarn-integrity
+
+# npm
+*.lock
+package-lock.json
+
+# Environment variables files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+
+# Log files
+logs/
+*.log
+npm-debug.log
+yarn-error.log
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
+
+# Other project specific files or directories you want to ignore
+filter_IPs.json
+filter_picture_IPs.json
+filter_description_IPs.json

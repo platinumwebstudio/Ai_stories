@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Assistant</title>
+
+    <link rel="stylesheet" href="/assets/css/generate-form.css">
+
+    <style>
+        .preloader {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h2>Your Assistant</h2>
+<form id="assistant-first-from">
+    <label for="message">Message:</label><br>
+    <input type="text" id="message" name="message" required><br><br>
+    <button type="button" id="sendButton">Send</button>
+    <p class="preloader"><img src="/assets/images/preloader.gif" height="25"/> Loading...</p>
+</form>
+
+<div id="return" style="max-width: 600px;
+    margin: 50px auto 0;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+      type: "POST",
+      url: "/assistant/message",
+      data: {
+        message: 'Hello'
+      },
+      beforeSend: function(){
+        $(".preloader").show();
+        $("#sendButton").prop("disabled", true);
+      },
+      success: function(data){
+        $("#return").html('');
+
+        data.forEach(function(item, index) {
+          $("#return").append(item.message);
+
+          if (item.voice) {
+            $("#return").append(`<audio id="audio_${index}" controls>
+               <source src="${item.voice}" type="audio/mp3">
+            </audio>`);
+          }
+        });
+
+        $("#message").val('');
+      },
+      error: function (err) {
+        console.error('err', err)
+      },
+      complete: function(){
+        $(".preloader").hide();
+        $("#sendButton").prop("disabled", false);
+      }
+    });
+
+    $('#assistant-first-from').on('keydown', function(event) {
+      if (event.which === 13) {
+        event.preventDefault();
+      }
+    });
+    $("#sendButton").click(function(event){
+      event.preventDefault();
+      $('#assistant-first-from').on('keydown', function(event) {
+        if (event.which === 13) {
+          event.preventDefault();
+        }
+      });
+
+      var message = $("#message").val();
+
+      $.ajax({
+        type: "POST",
+        url: "/assistant/message",
+        data: {
+          message: message
+        },
+        beforeSend: function(){
+          $(".preloader").show();
+          $("#sendButton").prop("disabled", true);
+        },
+        success: function(data){
+          $("#return").html('');
+
+          data.forEach(function(item, index) {
+            $("#return").append(item.message);
+
+            if (item.voice) {
+              $("#return").append(`<audio id="audio_${index}" controls>
+               <source src="${item.voice}" type="audio/mp3">
+            </audio>`);
+            }
+          });
+
+          $("#message").val('');
+        },
+        error: function (err) {
+          console.error('err', err)
+        },
+        complete: function(){
+          $(".preloader").hide();
+          $("#sendButton").prop("disabled", false);
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

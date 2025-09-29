@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Assistant</title>
+
+    <link rel="stylesheet" href="/assets/css/generate-form.css">
+</head>
+<body>
+<h2>You Assistant</h2>
+<form id="assistant-first-from" method="POST" action="/assistant/create">
+    <label for="firstName">Your Name:</label><br>
+    <input type="text" id="name" name="name" required>
+
+    <br><br>
+
+    <label for="firstName">Tone:</label><br>
+    <select name="tone" id="tone" required>
+        <option value="PROFESSIONAL">Professional</option>
+        <option value="CASUAL" selected>Casual</option>
+        <option value="QUIRKY">Quirky</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Next</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
