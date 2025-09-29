@@ -1,4 +1,4 @@
-# Mynd Node.js Backend
+# AI Stories Backend API
 
 Backend API для AI Stories - платформи персоналізованих AI-історій та медитацій.
 
@@ -44,7 +44,7 @@ Backend API для AI Stories - платформи персоналізован�
 ## 📁 Структура проекту
 
 ```
-mynd-nodejs/
+backend-api/
 ├── assets/           # Статичні файли (CSS, JS, зображення)
 ├── config/           # Конфігурація бази даних
 ├── helps/            # Допоміжні функції
@@ -63,7 +63,7 @@ mynd-nodejs/
 
    ```bash
    git clone <repository-url>
-   cd mynd-nodejs
+   cd mynd-nodejs  # або перейменуйте папку на backend-api
    ```
 
 2. **Встановлення залежностей**
@@ -80,7 +80,7 @@ mynd-nodejs/
 
    ```env
    # Database
-   MONGODB_URI=mongodb://localhost:27017/mynd
+   MONGODB_URI=mongodb://localhost:27017/ai_stories
 
    # Server
    PORT=5000

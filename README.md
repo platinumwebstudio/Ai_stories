@@ -4,7 +4,7 @@
 
 ## Структура проекту
 
-### [mynd-nodejs](./mynd-nodejs/) - Backend API
+### [backend-api](./mynd-nodejs/) - Backend API
 
 Node.js додаток з Express.js, що надає API для:
 
@@ -19,7 +19,7 @@ Node.js додаток з Express.js, що надає API для:
 
 ## Встановлення
 
-1. Перейдіть в папку `mynd-nodejs`
+1. Перейдіть в папку `mynd-nodejs` (backend API)
 2. Встановіть залежності: `npm install` або `yarn install`
 3. Налаштуйте змінні середовища в `.env`
 4. Запустіть сервер: `npm start`
