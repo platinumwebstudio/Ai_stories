@@ -63,7 +63,7 @@ backend-api/
 
    ```bash
    git clone <repository-url>
-   cd mynd-nodejs  # або перейменуйте папку на backend-api
+   cd api-nodejs
    ```
 
 2. **Встановлення залежностей**
